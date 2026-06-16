@@ -13,7 +13,7 @@ def sol_analitica(t):
 
 # Parâmetros de simulação
 t0, tf = 0.0, 5.0
-h = 0.1  # Passo propositalmente largo para evidenciar o erro de truncamento
+h = 0.1  # -----> Passo de tempo
 t_vals = np.arange(t0, tf + h, h)
 n_steps = len(t_vals)
 
@@ -51,7 +51,7 @@ print("-" * 80)
 for i in range(n_steps):
     print(f"{t_vals[i]:<10.2f} | {v_exato[i]:<10.4f} | {v_euler[i]:<10.4f} | {erro_euler[i]:<12.4e} | {v_rk4[i]:<10.4f} | {erro_rk4[i]:.4e}")
 
-# Opcional: Plotagem de resultados (descomentar se necessário no ambiente gráfico)
+# Plotagem de resultados
 
 plt.figure(figsize=(10, 5))
 t_fine = np.linspace(t0, tf, 200)
