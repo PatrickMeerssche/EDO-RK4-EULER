@@ -2,18 +2,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def f(t, v):
-    g = 9.80665
-    alpha = 0.1
+    g = 9.80665 # Aceleração gravitacional
+    alpha = 0.1 # Coeficiente de arrasto aerodinâmico
     return g - alpha * v**2
 
 def sol_analitica(t):
-    g = 9.80665
-    alpha = 0.1
+    g = 9.80665 # Aceleração gravitacional
+    alpha = 0.1 # Coeficiente de arrasto aerodinâmico
     return np.sqrt(g / alpha) * np.tanh(np.sqrt(g * alpha) * t)
 
 # Parâmetros de simulação
-t0, tf = 0.0, 5.0
-h = 0.1  # -----> Passo de tempo
+t0, tf = 0.0, 5.0 # Intervalo de tempo para simulação
+h = 0.1 # Passo de tempo
+v0 = 0.0 # Velocidade inicial (m/s)
 t_vals = np.arange(t0, tf + h, h)
 n_steps = len(t_vals)
 
@@ -23,8 +24,8 @@ v_rk4 = np.zeros(n_steps)
 v_exato = sol_analitica(t_vals)
 
 # Condições iniciais
-v_euler[0] = 0.0
-v_rk4[0] = 0.0
+v_euler[0] = v0
+v_rk4[0] = v0
 
 # Loop de integração numérico
 for i in range(n_steps - 1):
