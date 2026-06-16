@@ -2,12 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def f(t, v):
-    g = 9.81
+    g = 9.80665
     alpha = 0.1
     return g - alpha * v**2
 
 def sol_analitica(t):
-    g = 9.81
+    g = 9.80665
     alpha = 0.1
     return np.sqrt(g / alpha) * np.tanh(np.sqrt(g * alpha) * t)
 
