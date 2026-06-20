@@ -12,8 +12,8 @@ def sol_analitica(t):
     return np.sqrt(g / alpha) * np.tanh(np.sqrt(g * alpha) * t)
 
 # Parâmetros de simulação
-t0, tf = 0.0, 5.0 # Intervalo de tempo para simulação
-h = 0.1 # Passo de tempo
+t0, tf = 0.0, 3.5 # Intervalo de tempo para simulação
+h = 0.05 # Passo de tempo
 v0 = 0.0 # Velocidade inicial (m/s)
 t_vals = np.arange(t0, tf + h, h)
 n_steps = len(t_vals)
