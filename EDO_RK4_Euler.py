@@ -12,7 +12,7 @@ def sol_analitica(t):
     return np.sqrt(g / alpha) * np.tanh(np.sqrt(g * alpha) * t)
 
 # Parâmetros de simulação
-t0, tf = 0.0, 3.5 # Intervalo de tempo para simulação
+t0, tf = 0.0, 5.85 # Intervalo de tempo para simulação
 h = 0.05 # Passo de tempo
 v0 = 0.0 # Velocidade inicial (m/s)
 t_vals = np.arange(t0, tf + h, h)
@@ -65,4 +65,18 @@ plt.ylabel('Velocidade (m/s)')
 plt.legend()
 plt.grid(True, ls=':')
 plt.tight_layout()
+
+# Segundo plot separado da função principal f(t, v) = g - alpha*v^2
+plt.figure(figsize=(8, 5))
+v_plot = np.linspace(0, max(v_exato) * 1.1, 300)
+f_plot = f(0, v_plot)
+plt.plot(v_plot, f_plot, 'm-', linewidth=2, label='f(t, v) = g - alpha*v^2')
+plt.title('Função Principal')
+plt.xlabel('Velocidade v (m/s)')
+plt.ylabel('f(t, v) (m/s²)')
+plt.axhline(0, color='gray', linewidth=1, linestyle='--')
+plt.legend()
+plt.grid(True, ls=':')
+plt.tight_layout()
+
 plt.show()
